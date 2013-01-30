@@ -1,0 +1,63 @@
+
+/* some custom CSS for the demo */
+
+.column div {
+    margin: 0 0 14px 0;
+    padding: 10px 15px;
+}
+h2 {
+    font-family: "helvetica neue", "lucida grande", verdana, sans-serif;
+    font-size:20px;
+    margin:0;
+}
+.serif {
+    font-family: "georgia", "times new roman", serif;
+    font-style:italic;
+}
+.comic {
+    font-family: "comic sans", "comic sans ms", "helvetica neue", "lucida grande", verdana, sans-serif;
+}
+a, a:hover {
+    color:#00f;
+}
+.shinyTextShadow {
+    opacity: 0.7; /* shadow opacity */
+}
+.inset .shinyTextShadow {
+    color: #fff; /* white shadow for inset stuff */
+}
+.silver {
+    background: #bbb;
+    color: #333;
+}
+.red {
+    background: #9e0b0f;
+    color: #ffbabc;
+}
+.orange {
+    background: #ffb400;
+    color: #cf6200;
+}
+.green {
+    background: #3d8200;
+    color: #ffee31;
+}
+.blue {
+    background: #0062a9;
+    color: #ffffff;
+}
+.violet {
+    background: #58008a;
+    color: #b792cd;
+}
+.black {
+    background: #333;
+    color: #ffffff;
+}
+.yellow {
+    background: #fce100;
+    color: #ff0007;
+}
+#slider {
+    width:600px;
+}

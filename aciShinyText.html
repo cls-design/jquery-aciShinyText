@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="en" />
+        <meta name="robots" content="index, follow" />
+        <title>aciShinyText - Text color gradient with jQuery</title>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="css/ui-lightness/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="css/aciShinyText.css" />
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="css/demo.css" />
+        <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="js/jquery.aciShinyText.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <p>A simple example...</p>
+        <p>Based on the ideea behind <a href="http://labs.dragoninteractive.com/rainbows_demo.php" rel="nofollow" target="_blank">Rainbows</a> plugin (thanks for the colors!).<br />
+        By difference: text wrapping is supported, the gradient is applied at the text line level instead of the entire element height and more than two colors are supported.</p>
+        <p>See also a demo using <b>aciTypewriter</b> <a href="/demo/shinyType.html" target="_blank" title="aciShinyText & aciTypewriter demo">here</a>.</p>
+        <div class="column">
+            <div class="inset silver">
+                <h2>Lorem ipsum dolor sit amet, consectetur <i>adipiscing</i> elit</h2>
+            </div>
+            <div class="red comic">
+                <h2>Ut a consequat risus</h2>
+            </div>
+            <div class="inset orange">
+                <h2>Vivamus egestas consectetur velit vitae</h2>
+            </div>
+            <div class="green serif">
+                <h2>Suspendisse hendrerit, nulla vitae mattis</h2>
+            </div>
+            <div class="blue">
+                <h2>Fusce semper bibendum tristique</h2>
+            </div>
+            <div class="violet serif">
+                <h2>Aliquam ut ipsum id tortor imperdiet</h2>
+            </div>
+            <div class="black">
+                <h2>Cras turpis felis, mollis sed fermentum</h2>
+            </div>
+            <div class="inset yellow">
+                <h2>Ut tempus imperdiet mi, iaculis dictum</h2>
+            </div>
+            <div class="inset silver">
+                <h2>Donec velit quam, bibendum et volutpat</h2>
+            </div>
+        </div>
+        <p><a id="destroy" href="#" title="Destroy">Destroy</a><a id="reinit" href="#" style="display:none" title="(re)Init">(re)Init</a></p>
+        <p>Change color blending ratio: <span id="value">1</span> <div id="slider"></div></p>
+        <script type="text/javascript">
+
+            $(function() {
+
+                // init them all
+                function initAll(){
+
+                    $('.inset.silver:first h2').aciShinyText({
+                        colors: ['#000000', '#aaaaaa'],
+                        shadow: true
+                    });
+
+                    $('.red.comic h2').aciShinyText({
+                        colors: ['#ffbabc', '#cb1217'],
+                        highlight: true,
+                        shadow: true
+                    });
+
+                    $('.inset.orange h2').aciShinyText({
+                        colors: ['#cf6200', '#ff9a00'],
+                        shadow: true
+                    });
+
+                    $('.green.serif h2').aciShinyText({
+                        colors: ['#ffee31', '#fea100'],
+                        highlight: true,
+                        shadow: true
+                    });
+
+                    $('.blue h2').aciShinyText({
+                        colors: ['#ffffff', '#666666'],
+                        highlight: true,
+                        shadow: true
+                    });
+
+                    $('.violet.serif h2').aciShinyText({
+                        colors: ['#b792cd', '#310063'],
+                        highlight: '#a260c9',
+                        shadow: true
+                    });
+
+                    $('.black h2').aciShinyText({
+                        colors: ['#ffffff', '#666666'],
+                        highlight: true,
+                        shadow: true
+                    });
+
+                    $('.inset.yellow h2').aciShinyText({
+                        colors: ['#ff0007', '#ff0007', '#ed8f00', '#00f', '#0f0', '#0f0']
+                    });
+
+                    $('.inset.silver:last h2').aciShinyText({
+                        colors: ['#002d98', '#00aeff'],
+                        shadow: true
+                    });
+
+                }
+
+                // destroy them >:)
+                $('#destroy').click(function(){
+                    $(this).fadeOut();
+                    $('.column h2').aciShinyText('destroy');
+                    $('#reinit').fadeIn();
+                });
+
+                // reinit them all
+                $('#reinit').click(function(){
+                    $(this).fadeOut();
+                    initAll();
+                    $('#destroy').fadeIn();
+                });
+
+                // some slider stuff :)
+                $('#slider').slider({
+                    min: 0.1,
+                    max: 10,
+                    step: 0.1,
+                    value: 1,
+                    change: function(event, ui){
+                        $('#value').html(ui.value);
+                        $('.column h2').aciShinyText('ratio', ui.value);
+                    }
+                });
+
+                // do init
+                initAll();
+
+            });
+
+        </script>
+    </body>
+</html>
